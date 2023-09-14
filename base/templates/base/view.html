@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{data.description}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/6a72a8e32d.js" crossorigin="anonymous"></script>
+    
+    <style>
+        body{
+            margin: 2% 0%;
+        }
+        .cont{
+            margin: 5% 0%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+       
+    </style>
+</head>
+<body>
+    <button class="btn bg-dark text-white m-4 rounded-1" id="back-button"><i class="fa-solid fa-angle-left"></i> Go Back</button>
+    <br>
+    <br>
+    <div class="cont">
+   <img src="{{data.urls.regular}}" class="imgs" alt=""> <br> 
+  <br>
+  <a href="{{data.links.html}}" target="_blank" class="btn bg-dark text-white m-4 rounded-1" style="display: inline-block; float: right;">View in Unsplash</a>
+    <img src="{{data.user.profile_image.small}}" class="profile" style="border-radius: 50px;" alt=""> &nbsp; <span><strong>{{data.user.username}}</strong></span> &nbsp;&nbsp; <span>{{data.likes}}&nbsp; <i class="fa-solid fa-thumbs-up"></i></span>
+    <br>
+    <br>
+    <h5 class="card-text"><i class="fa-solid fa-download fa-xs"></i>&nbsp; Downloads : {{statics.downloads.total}}</h5>
+    <span><h5 class="card-text"><i class="fa-solid fa-eye fa-xs"></i>&nbsp; Views : {{statics.views.total}}</h5></span>
+    <br>
+    {% if d.description != None %}
+            <p class="card-text ">{{data.description}}</p>
+         {% else %}
+         <p class="card-text p-2">No description by {{data.user.username}}</p>
+         {% endif %}
+            <p class="card-text"><b>Posted on {{data.created_at}}</b></p>
+<br>
+<br>
+
+    
+</div>
+
+<script>
+    document.getElementById("back-button").addEventListener("click", function() {
+        window.history.back();
+    });
+</script>
+</body>
+</html>
